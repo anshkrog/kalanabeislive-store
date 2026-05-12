@@ -7,7 +7,7 @@ function App() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/products')
+    axios.get('https://ansh-store-zq30.onrender.com/api/products')
       .then(res => setProducts(res.data))
       .catch(err => console.error("Error fetching products", err));
   }, []);
@@ -15,7 +15,7 @@ function App() {
   const addToCart = (product) => setCart([...cart, product]);
 
   const checkout = () => {
-    axios.post('http://localhost:5001/api/orders', {
+    axios.post('https://ansh-store-zq30.onrender.com/api/products', {
       items: cart,
       customerDetails: { name: "Ansh", address: "Delhi, India" }
     }).then(res => {
